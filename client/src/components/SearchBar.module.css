@@ -1,0 +1,9 @@
+.estilo{
+    align-self: center;
+    display: flex;
+    column-gap: 10px;
+}
+.estilo>input{
+    padding: 10px;
+    border-radius: 10px;
+}

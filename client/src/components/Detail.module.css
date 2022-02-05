@@ -1,0 +1,19 @@
+.estiloDiv{
+
+
+    display: grid;
+    justify-items: center;
+    margin: 20px;
+    width: 43rem;
+    height: 38rem;
+    padding: 3rem;
+    border-radius: 44px;
+    background: #d73f66;
+    word-break: break-all;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+   }

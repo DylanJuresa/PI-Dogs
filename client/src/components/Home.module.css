@@ -1,0 +1,40 @@
+.estiloNav{
+    display: flex;
+    column-gap: 52px;
+    background-color: slateblue;
+    place-content: space-evenly;
+}
+.estiloNav>a{
+    color: white;
+    text-decoration: none;
+    align-self: center;
+    font-size: 25px;
+    margin-left: 15px;
+}
+
+.estiloFiltros{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    column-gap: 15px;
+}
+.estiloFiltros>select{
+    font-family: cursive;
+    border-radius: 73px;
+    border-color: black;
+    padding: 8px
+}
+
+.estiloButtonReload{
+    margin-top: 20px;
+    display: grid;
+    justify-content: center;
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+  

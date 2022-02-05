@@ -1,0 +1,27 @@
+.card {
+  display: grid;
+  justify-items: center;
+  margin: 20px;
+  width: 18rem;
+  border-radius: 44px;
+  background: slateblue;
+  word-break: break-all;
+  border: solid
+
+
+}
+.card> a{
+  text-decoration: none;
+}
+
+
+.card >img{
+  border-radius: 25%
+}
+
+h4{
+
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
