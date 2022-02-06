@@ -18,7 +18,7 @@ export default function Paginado({ dogsPerPage, allDogs, paginado }) {
                     pageNumbers && pageNumbers.map(number => {
                         return (
                             <li className="estilo" onClick={() => paginado(number)}>
-                                <a style={{fontFamily: "cursive"}}>{number}</a>
+                                <p style={{fontFamily: "cursive"}}>{number}</p>
                             </li>
 
                         )

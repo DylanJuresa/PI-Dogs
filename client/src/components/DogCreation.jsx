@@ -90,7 +90,7 @@ export default function DogCreation() {
             })
 
         }
-        if (e.target.name == "imagen") {
+        if (e.target.name === "imagen") {
             setInput({
                 ...input,
                 imagen:e.target.value
@@ -136,7 +136,7 @@ export default function DogCreation() {
                 <div >
 
                     <label onChange={e => handleInput(e)}>
-                        <a >Nombre</a>
+                        <p >Nombre</p>
                         <input type="text" name="nombre" onChange={e => handleInput(e)} />
                     </label >
 
@@ -147,7 +147,7 @@ export default function DogCreation() {
 
                 <div >
                     <label onChange={e => handleInput(e)}>
-                        <a >Peso</a>
+                        <p >Peso</p>
                         <input placeholder="Min Weight" type="text" name="pesoMin" />
                         <input placeholder="Max Weight" type="text" name="pesoMax" />
                     </label>
@@ -159,7 +159,7 @@ export default function DogCreation() {
 
                 <div >
                     <label onChange={e => handleInput(e)}>
-                        <a >Altura</a>
+                        <p >Altura</p>
                         <input placeholder="Min Height" type="text" name="alturaMin" />
                         <input placeholder="Max Altura" type="text" name="alturaMax" />
                     </label>
@@ -171,7 +171,7 @@ export default function DogCreation() {
 
                 <div >
                     <label onChange={e => handleInput(e)} >
-                        <a >Expectativa de vida</a>
+                        <p>Expectativa de vida</p>
                         <input placeholder="Min LifeSpan" type="text" name="añosDeVidaMin" />
                         <input placeholder="Max LifeSpan" type="text" name="añosDeVidaMax" />
                     </label>
@@ -181,7 +181,7 @@ export default function DogCreation() {
 
                 <div>
                     <label onChange={e => handleInput(e)}>
-                        <a >Link de imagen</a>
+                        <p>Link de imagen</p>
                         <input type="text" placeholder="Ingrese Url"  name="imagen" />
                     </label>
                 </div>

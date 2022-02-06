@@ -16,7 +16,6 @@ export default function Home() {
     //// VARIABLES CON ACCESO AL ESTADO GLOBAL REDUX
 
     const allDogs = useSelector((state) => state.allDogs)
-    const allDogs2 = useSelector((state) => state.dogs)
     const allTemps = useSelector((state) => state.temperaments)
 
     //// ESTADOS LOCALES
