@@ -1,3 +1,5 @@
+
+
 body {
   
   margin: 0;
@@ -9,6 +11,12 @@ body {
   background-image: url(https://st2.depositphotos.com/5448718/10570/v/600/depositphotos_105704794-stock-illustration-vector-seamless-pattern-with-cat.jpg);
   font-family: cursive;
 }
+
+#root{
+  overflow-x: hidden;
+  width: 100%;
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

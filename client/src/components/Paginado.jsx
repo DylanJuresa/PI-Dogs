@@ -1,7 +1,7 @@
 import React from "react";
 import "./Paginado.css"
 
-export default function Paginado({ dogsPerPage, allDogs, paginado }) {
+export default function Paginado({ dogsPerPage, allDogs, paginado, currentPage, setCurrentPage }) {
     const pageNumbers = []
 
 
@@ -26,6 +26,31 @@ export default function Paginado({ dogsPerPage, allDogs, paginado }) {
                     })
                 }
             </ul>
+            <div className="paginadoResponsive">
+                <button onClick={() => {
+                    if (currentPage === pageNumbers[0]) {
+
+                    }
+                    else {
+                        setCurrentPage(currentPage - 1)
+                    }
+                }}>{"<"}
+                </button>
+                <li className="estilo" >
+                    <a style={{ fontFamily: "cursive" }}>{currentPage}</a>
+                </li>
+                <button onClick={() => {
+                    if (currentPage === pageNumbers[pageNumbers.length - 1]) {
+
+                    }
+                    else {
+                        setCurrentPage(currentPage + 1)
+                    }
+                }} >{">"}</button>
+
+            </div>
+
         </div>
+
     )
 }
