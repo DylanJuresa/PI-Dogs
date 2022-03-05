@@ -7,3 +7,9 @@
     padding: 10px;
     border-radius: 10px;
 }
+@media (max-width: 665px) {
+    .estilo{
+        flex-direction: column;
+    }
+
+  }
