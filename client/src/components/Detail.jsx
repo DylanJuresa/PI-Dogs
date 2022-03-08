@@ -1,59 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import { getDogById } from "../actions";
+import { useSelector } from "react-redux"
 import s from "./Detail.module.css"
 
 
 export default function Detail() {
 
 
-    const { id } = useParams();
-    const dispatch = useDispatch();
+    const data = useSelector((state) => state.detailedDog)
+    const [dogInfo, setDogInfo] = useState([])
 
-    const dogInfo = useSelector((state) => state.detailedDog)
 
 
     useEffect(() => {
-        dispatch(getDogById(id))
-    }, [dispatch])
+        setDogInfo(data)
 
-    if (dogInfo.length && dogInfo[0].createdInDb === false) {
-        return (
+    }, [dogInfo, data])
 
-            <div className={s.estiloDiv}>
-                <img src={dogInfo[0].img} alt="A" width="200px" height="250px" />
-                <h4>Nombre: {dogInfo[0].name}</h4>
-                <h5>Peso: {`${dogInfo[0].weight} Kgs`}</h5>
-                <h5>Altura: {`${dogInfo[0].height} cm`}</h5>
-                <h5>Temperamentos: {dogInfo[0].temperamentos.toString()}</h5>
-                <h5>Años de vida:  {`${dogInfo[0].yearsLife} `}</h5>
-                <Link to="/dogs">Volver a Home</Link>
 
-            </div>
 
-        )
+    return (
+        <div className={s.container}>
+            {dogInfo.length !== 0 ?
+                <div className={s.estiloContainer}>
+                    <img src={dogInfo[0].img} alt="A" width="200px" height="250px" />
+                    <h4>Nombre: {dogInfo[0].name}</h4>
+                    <h5>Peso: {`${dogInfo[0].weight} Kgs`}</h5>
+                    <h5>Altura: {`${dogInfo[0].height} cm`}</h5>
+                    <h5>Temperamentos: {dogInfo[0].temperamentos.toString()}</h5>
+                    <h5>Años de vida:  {`${dogInfo[0].yearsLife} `}</h5>
+                    <Link to="/dogs">Volver a Home</Link>
 
-    }
-    if (dogInfo.length && dogInfo[0].createdInDb === true){
-        return (
+                </div> : false}
 
-            <div className={s.estiloDiv}>
-                <img src={dogInfo[0].imagen} alt="A" width="200px" height="250px" />
-                <h4>Nombre: {dogInfo[0].name}</h4>
-                <h5>Peso: {`${dogInfo[0].weight} Kgs`}</h5>
-                <h5>Altura: {`${dogInfo[0].height} cm`}</h5>
-                <h5>Temperamentos: {dogInfo[0].temperamentos.toString()}</h5>
-                <h5>Años de vida:  {`${dogInfo[0].yearsLife} `}</h5>
-                <Link to="/dogs">Volver a Home</Link>
+        </div>
 
-            </div>
+    )
 
-        )
-
-    }
-    else return null
 
 
 
