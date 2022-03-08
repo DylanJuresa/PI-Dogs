@@ -1,6 +1,7 @@
 .container {
+    position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,11 +16,14 @@
     border-radius: 44px;
     background: #d73f66;
     word-break: break-all;
-    position: absolute;
 }
 
 @media (max-width: 840px) {
     .estiloContainer {
         width: auto;
     }
-}
+};
+
+
+
+
