@@ -2,7 +2,7 @@ import axios from "axios"
 
 export function getDogs() {
     return async function (dispatch) {
-        var info = await axios.get("http://localhost:3001/dogs", {});
+        var info = await axios.get(`http://${process.env.REACT_APP_IP}:3001/dogs`, {});
         return dispatch({
             type: "GET_DOGS",
             payload: info.data
@@ -14,7 +14,7 @@ export function getDogs() {
 
 export function getDogByName(name) {
     return async function (dispatch) {
-        var info = await axios.get("http://localhost:3001/dogs?name=" + name)
+        var info = await axios.get(`http://${process.env.REACT_APP_IP}:3001/dogs?name=` + name)
         return dispatch({
             type: "GET_DOG_BY_NAME",
             payload: info.data
@@ -26,7 +26,7 @@ export function getDogByName(name) {
 
 export function getDogById(id) {
     return async function (dispatch) {
-        var info = await axios.get("http://localhost:3001/dogs/" + id)
+        var info = await axios.get(`http://${process.env.REACT_APP_IP}:3001/dogs/` + id)
         return dispatch({
             type: "GET_DOG_BY_ID",
             payload: info.data
@@ -40,7 +40,7 @@ export function getDogById(id) {
 
 export function getTemperaments() {
     return async function (dispatch) {
-        var info = await axios.get("http://localhost:3001/temperaments", {});
+        var info = await axios.get(`http://${process.env.REACT_APP_IP}:3001/dogs`, {});
         return dispatch({
             type: "GET_TEMPERAMENTS",
             payload: info.data
@@ -75,12 +75,12 @@ export function postDog(payload) {
         weight: [payload.pesoMin, payload.pesoMax],
         yearsLife: payload.añosDeVidaMin + " - " + payload.añosDeVidaMax,
         temperamentos: payload.temperamentos,
-        imagen:payload.imagen
+        imagen: payload.imagen
 
     }
 
     return async function () {
-        await axios.post("http://localhost:3001/dogs", { infoPost });
+        await axios.post(`http://${process.env.REACT_APP_IP}:3001/dogs`, { infoPost });
         return {
             type: "POST_DOG"
         }
