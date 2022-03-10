@@ -108,10 +108,10 @@ export default function Home() {
                 <Link to="/dogs/creation" >Crear Raza</Link>
 
 
-                <div className={isResponsive&&isDesktopOrLaptop ? s.estiloFiltrosResponsive : s.estiloFiltros}>
+                <div className={isResponsive && isDesktopOrLaptop ? s.estiloFiltrosResponsive : s.estiloFiltros}>
 
 
-                    {isMobileOrTablet?<SearchBar/>:false}
+                    {isMobileOrTablet ? <SearchBar /> : false}
                     {/* ÓRDEN ALFABETICO */}
 
                     <select onChange={e => handleAlphabeticSort(e)} >
@@ -156,7 +156,7 @@ export default function Home() {
 
                     </select>
 
-                    <button onClick={e => handleFiltersOn(e)} style={{ fontFamily: "cursive", borderRadius: "10px" }}>Filtrar</button>
+                    <button onClick={e => handleFiltersOn(e)} style={{ borderRadius: "10px" }}>Filtrar</button>
 
 
 
@@ -165,7 +165,7 @@ export default function Home() {
 
 
 
-                {isMobileOrTablet?false:<SearchBar />}
+                {isMobileOrTablet ? false : <SearchBar />}
 
                 {isDesktopOrLaptop ? <button onClick={() => setIsResponsive(!isResponsive)} style={{ fontSize: "20px", backgroundColor: "slateblue" }}><AiOutlineMenu></AiOutlineMenu></button> : false}
 
@@ -194,7 +194,7 @@ export default function Home() {
             </div>
 
             <div className={s.estiloButtonReload}>
-                <button style={{ fontFamily: "cursive", borderRadius: "10px" }} onClick={e => { handleClick(e) }}>
+                <button style={{ borderRadius: "10px" }} onClick={e => { handleClick(e) }}>
                     Volver a cargar todos los perros
                 </button>
 

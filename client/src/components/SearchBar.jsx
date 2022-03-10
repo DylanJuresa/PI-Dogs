@@ -31,7 +31,7 @@ export default function SearchBar() {
                 placeholder="Inserte nombre a buscar"
                 onChange={e => handleInput(e)}
             />
-            <button style={{ fontFamily: "cursive", borderRadius: "10px" }} onClick={e => handleSubmit(e)} >Buscar</button>
+            <button style={{borderRadius: "10px" }} onClick={e => handleSubmit(e)} >Buscar</button>
         </div>
 
     )
