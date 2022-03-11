@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getTemperaments, postDog } from "../actions";
 import { Link } from "react-router-dom";
 import s from "./DogCreation.module.css"
+import { BiArrowBack } from "react-icons/bi";
 
 
 export default function DogCreation() {
@@ -93,7 +94,7 @@ export default function DogCreation() {
         if (e.target.name === "imagen") {
             setInput({
                 ...input,
-                imagen:e.target.value
+                imagen: e.target.value
 
             })
 
@@ -123,7 +124,7 @@ export default function DogCreation() {
         }
         else {
             e.preventDefault()
-            alert("No se pudo crear la raza, complete los campos!")
+            alert("No se pudo crear la raza, complete los campos!" + JSON.stringify(errors))
         }
 
     }
@@ -131,103 +132,85 @@ export default function DogCreation() {
     return (
 
         <div className={s.estiloDiv}>
+
             <form className={s.estiloForm} onSubmit={e => handleSubmit(e)}>
-
-                <div >
-
-                    <label onChange={e => handleInput(e)}>
+                <button type="button" style={{ alignSelf: "flex-start" }}><Link to={"/dogs"} ><BiArrowBack /></Link></button>
+                <div className={s.estiloContainer} onChange={e => handleInput(e)}>
+                    <div >
                         <p >Nombre</p>
-                        <input type="text" name="nombre" onChange={e => handleInput(e)} />
-                    </label >
+                        <input type="text" name="nombre" />
 
-                    {errors.nombre && (
-                        <p>{errors.nombre}</p>
-                    )}
-                </div>
+                    </div>
 
-                <div >
-                    <label onChange={e => handleInput(e)}>
+                    <div >
+
                         <p >Peso</p>
                         <input placeholder="Min Weight" type="text" name="pesoMin" />
+
                         <input placeholder="Max Weight" type="text" name="pesoMax" />
-                    </label>
-                    {errors.peso && (
-                        <p>{errors.peso}</p>
-                    )}
 
-                </div>
 
-                <div >
-                    <label onChange={e => handleInput(e)}>
+                    </div>
+
+                    <div  >
                         <p >Altura</p>
                         <input placeholder="Min Height" type="text" name="alturaMin" />
-                        <input placeholder="Max Altura" type="text" name="alturaMax" />
-                    </label>
-                    {errors.altura && (
-                        <p>{errors.altura}</p>
-                    )}
+                        <input placeholder="Max Height" type="text" name="alturaMax" />
 
-                </div>
+                    </div>
 
-                <div >
-                    <label onChange={e => handleInput(e)} >
+                    <div  >
                         <p>Expectativa de vida</p>
                         <input placeholder="Min LifeSpan" type="text" name="añosDeVidaMin" />
                         <input placeholder="Max LifeSpan" type="text" name="añosDeVidaMax" />
-                    </label>
+                    </div>
 
-
-                </div>
-
-                <div>
-                    <label onChange={e => handleInput(e)}>
+                    <div >
                         <p>Link de imagen</p>
-                        <input type="text" placeholder="Ingrese Url"  name="imagen" />
-                    </label>
+                        <input type="text" placeholder="URL" name="imagen" />
+                    </div>
                 </div>
 
-                <div>Temperamentos
+                <div className={s.estiloContainer} >
+                    <h3>Temperamentos</h3>
+                    <div>
+                        <select name="temperamentos" onClick={e => handleInput(e)}>
+
+                            <option value="temps" selected="Temperamentos">Temperamentos</option>
+
+                            {
+                                allTemps && allTemps.map(el => {
+                                    return (
+                                        <option value={el.name}>{el.name}</option>
+                                    )
+
+                                })
+
+                            }
+
+                        </select>
+
+                        <button className={s.estilobutton} onClick={e => handleDelete(e)}>Borrar eleccion</button>
+                    </div>
 
 
-                    <select name="temperamentos" onClick={e => handleInput(e)}>
 
-                        <option value="temps" selected="Temperamentos">Temperamentos</option>
+                    <ul>{input.temperamentos?.map(el => el + ", ")}
 
-                        {
-                            allTemps && allTemps.map(el => {
-                                return (
-                                    <option value={el.name}>{el.name}</option>
-                                )
-
-                            })
-
-                        }
-                    </select>
+                    </ul>
 
                 </div>
 
-
-                <ul>{input.temperamentos?.map(el => el + ", ")}
-                    <button className={s.estilobutton} onClick={e => handleDelete(e)}>Borrar eleccion</button>
-                </ul>
-
-
-
-                <button className={s.estilobutton} type="submit">Crear raza</button>
-
-
-                <Link to={"/dogs"} style={{ position: "absolute", left: "10%" }}>Volver al home</Link>
-
-
-
+                <button type="submit" className={s.estilobutton} style={{ padding: "10px" }}>Crear raza</button>
 
 
             </form>
-
-
-
-
         </div>
+
+
+
+
+
 
     )
 

@@ -12,6 +12,7 @@
     place-content: space-evenly;
     width: 100%;
     height: 59px;
+    border-bottom: solid black;
 }
 .estiloNav > a {
     color: white;
