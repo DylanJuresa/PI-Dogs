@@ -57,7 +57,8 @@ const getAllDogs = async () => {
 
 }
 
-
+router.get("/dogs/test/", async function (req, res) {console.log(req.ip})
+           
 router.get("/dogs", async function (req, res) {
 
 
